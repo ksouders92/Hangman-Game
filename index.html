@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Hangman Game</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hangman Game">
+    <meta name="author" content="Kathleen Souders">
+
+<!-- set up style sheets -->
+<!-- reset not needed because using bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="./Assets/CSS/style.css">
+
+</head>
+
+<body>
+
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<img src="./Assets/Images/friends.header.png" class="img-responsive" alt="Friends Header">
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-4">
+			<div class="row">
+
+				<!-- ids for js data manipulation -->
+				<div class="col-md-12" id="instructions"></div>
+				<div class="col-md-12" id="game"></div>
+				<div class="col-md-12" id="stats"></div>
+				<div class="col-md-12" id="guesses"></div>
+		
+			</div>
+		</div>
+		<div class="col-md-3" id="joeyThinking">
+			<!-- This div has the homeImage id which will be used to change image via js -->
+			<img src="./Assets/Images/Joey.thinking.jpg" class="img-responsive" alt="Joey thinking">
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+	<!-- Link to game javascript  -->
+	<script type="text/javascript" src="./Assets/Javascript/game.friends.js"></script>
+
+</body>
+
+</html>
