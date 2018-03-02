@@ -63,7 +63,7 @@ function resetGame() {
 	wordToBeGuessed = wordsList[Math.floor(Math.random() * wordsList.length)];
 	arrayFromWord = [];
 	breakWordIntoArray();
-	// lets update the document via instructions id
+	// Updates the document via instructions id
 	var htmlInstructions="<p><h3>Press any key to begin guessing</p></h3>";
 	document.querySelector("#instructions").innerHTML = htmlInstructions;
     var htmlGameInitial = "<p><h1>";
@@ -85,7 +85,7 @@ function resetGame() {
 
 // function that displays progress as the game is played
 function displayProgress() {
-	// Displaying progress to HTML
+	
 	for (i = 0, j = 0; i < (arrayFromWord.length / 2); i++) {
 			if (arrayFromWord[j+1] == true) {
 			html += arrayFromWord[j];
@@ -113,8 +113,7 @@ function displayProgress() {
 
 // function to check user guess as valid and update arrays
 function validateUserGuess() {
-	// if user's pick doesn't exist in prior picks and doesn't exist in the word, reduce guesses left by 1 the array of prior picks, and
-	//play sound
+	// if user's pick doesn't exist, reduce guesses left by 1 the array of prior picks, and play sound
 	if (arrayFromWord.indexOf(userGuess) < 0 && guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 1) {
 		guessesLeft--;
 		var audio = new Audio("./Audio/Ripped.mp3");
@@ -178,7 +177,6 @@ function hasUserLost() {
 
 // function to reset the html variable
 function resetHtmlVariable() {
-	// reset the html variable so we can rebuild it after next user guess
 	html="<p><h1>";
 
 }
@@ -200,7 +198,7 @@ document.onkeyup = function(event) {
 	// check if user's guess is valid 
 	validateUserGuess();
 
-	// inject progress into html
+	// Display progress into html
 	displayProgress();
 
 	// debugging
