@@ -2,6 +2,10 @@
 // Define words that computer will select from
 var wordsList = ["Joey", "Monica", "Chandler", "Rachel", "Ross", "Phoebe", "Central Perk", "smelly cat", "New York City", "friends"];
 
+// Hints for the chosen word from the word ist
+var hints = ["I'm an aspiring actor!", "I am a controlling clean freak!", "I am sarcastic!", "Im spoiled & left my groom at the alter", 
+"I love dinosaurs (and Rachel!)", "I am a massage therapist but I really want to be a singer!", "Where we all live", "Our favorite hangout spot.", "One of Phoebe's songs, a fan favorite.", "We drink a lot of this!"]
+
 // Define alphabet letters that user can pick from
 var alphabetLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -111,9 +115,9 @@ function displayProgress() {
 function validateUserGuess() {
 	// if user's pick doesn't exist in prior picks and doesn't exist in the word, reduce guesses left by 1 the array of prior picks, and
 	//play sound
-	if (arrayFromWord.indexOf(userGuess) < 0 && guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 0) {
+	if (arrayFromWord.indexOf(userGuess) < 0 && guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 1) {
 		guessesLeft--;
-		var audio = new Audio("Assets/Audio/Ripped.mp3");
+		var audio = new Audio("./Audio/Ripped.mp3");
 		audio.play();
 	}
 	// add all alphabetic guesses to guessesSoFar if not already in there
@@ -126,7 +130,7 @@ function validateUserGuess() {
 		if (arrayFromWord[i] === userGuess) {
 			// if the letter wasn't previously guessed then play "how you doing"
 			if (arrayFromWord[i+1] == false) {
-				var audio = new Audio("Assets/Audio/Joey.mp3");
+				var audio = new Audio("./Audio/Joey.mp3");
 				audio.play();
 			}
 			arrayFromWord[i+1] = true;
@@ -142,7 +146,7 @@ function hasUserWon() {
 		// user has won, increment wins
 		wins++;
 		// play "I'll be there for you"
-		var audio = new Audio("Assets/Audio/friends.mp3");
+		var audio = new Audio("./Audio/friends.mp3");
 		audio.play();
 		// update joey thinking to victory image
 		var joeyThinking="<img src=\"Assets/images/victory.gif\" class=\"img-responsive\" alt=\"Dancing in fountain\">";
@@ -161,7 +165,7 @@ function hasUserLost() {
 		// user has lost, increment losses
 		losses++;
 		// play Phoebe's "oh no"
-		var audio = new Audio("Assets/Audio/Phoebe.mp3");
+		var audio = new Audio("./Audio/Phoebe.mp3");
 		audio.play();
 		// update Joey's image to loss image
 		var joeyThinking="<img src=\"Assets/images/loss.gif\" class=\"img-responsive\" alt=\"Monica falling\">";
