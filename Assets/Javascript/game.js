@@ -1,6 +1,7 @@
 // Variable first
 // Define words that computer will select from
-// made all words lowercase because I couldn't get the code I had to work (see line )
+// made all words lowercase because I couldn't get the code I had to work 
+// see line 146
 var wordsList = ["joey", "monica", "chandler", "rachel", "ross", "phoebe", "central perk", "smelly cat", "new york city", "friends"];
 
 // Hints for the chosen word from the word list
@@ -16,7 +17,7 @@ var wins = 0;
 var losses = 0;
 
 // guessesLeft is how many attempts user has remaining in the round
-var guessesLeft = 10;
+var guessesLeft = 7;
 // guessesSoFar is an array that will hold all the user's guesses in each round
 var guessesSoFar = [];
 // userGuess is what the user picks by pressing a key
@@ -60,7 +61,7 @@ function consoleLogs() {
 // function that will reset the game when the game is won or lost
 function resetGame() {
 	// lets reset the variables / stats for the game
-	guessesLeft = 10;
+	guessesLeft = 7;
 	guessesSoFar = [];
 	wordToBeGuessed = wordsList[Math.floor(Math.random() * wordsList.length)];
 	arrayFromWord = [];
