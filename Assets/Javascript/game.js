@@ -1,8 +1,10 @@
 // Variable first
 // Define words that computer will select from
-var wordsList = ["Joey", "Monica", "Chandler", "Rachel", "Ross", "Phoebe", "Central Perk", "smelly cat", "New York City", "friends"];
+// made all words lowercase because I couldn't get the code I had to work (see line )
+var wordsList = ["joey", "monica", "chandler", "rachel", "ross", "phoebe", "central perk", "smelly cat", "new york city", "friends"];
 
-// Hints for the chosen word from the word ist
+// Hints for the chosen word from the word list
+// Not sure the next step to get the hints to show up with the corresponding word
 var hints = ["I'm an aspiring actor!", "I am a controlling clean freak!", "I am sarcastic!", "Im spoiled & left my groom at the alter", 
 "I love dinosaurs (and Rachel!)", "I am a massage therapist but I really want to be a singer!", "Where we all live", "Our favorite hangout spot.", "One of Phoebe's songs, a fan favorite.", "We drink a lot of this!"]
 
@@ -113,29 +115,62 @@ function displayProgress() {
 
 // function to check user guess as valid and update arrays
 function validateUserGuess() {
-	// if user's pick doesn't exist, reduce guesses left by 1 the array of prior picks, and play sound
-	if (arrayFromWord.indexOf(userGuess) < 0 && guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 1) {
-		guessesLeft--;
-		var audio = new Audio("./Audio/Ripped.mp3");
-		audio.play();
-	}
-	// add all alphabetic guesses to guessesSoFar if not already in there
-	if (guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 0) {
-		guessesSoFar[guessesSoFar.length]=userGuess;
-	}
+    // if user's pick doesn't exist, reduce guesses left by 1 the array of prior picks, and play sound
 
-	// if userGuess exists in the array then switch from false to true
-	for (var i = 0; i < arrayFromWord.length; i++) {
-		if (arrayFromWord[i] === userGuess) {
-			// if the letter wasn't previously guessed then play "how you doing"
-			if (arrayFromWord[i+1] == false) {
-				var audio = new Audio("./Audio/Joey.mp3");
-				audio.play();
-			}
-			arrayFromWord[i+1] = true;
-		}
-	}	
+
+    if (arrayFromWord.indexOf(userGuess) < 0 && guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 0) {
+		guessesLeft--;
+        var audio = new Audio("./Audio/Ripped.mp3");
+		audio.play();
+	// audio files not found
+    }
+    // add all alphabetic guesses to guessesSoFar if not already in there
+     (guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 0); {
+        guessesSoFar[guessesSoFar.length]=userGuess;
+    }
+
+    // if userGuess exists in the array then switch from false to true
+    for (var i = 0; i < arrayFromWord.length; i++) {
+      
+			if (arrayFromWord[i] === userGuess) {
+				// if the letter wasn't previously guessed then play how you doin
+				if (arrayFromWord[i+1] == false) {
+					var audio = new Audio("../Audio/Joey.mp3");
+					audio.play();
+	//audio files not found
+				}
+				arrayFromWord[i+1] = true;
+        }
+    }    
 }
+// Tried this code so the computer would recognize lower case keypress' as upper when neccessary but debugger said that toUppercase was null then it said validateUserGuess was undefined
+//function validateUserGuess() {
+    // if user's pick doesn't exist, reduce guesses left by 1 the array of prior picks, and play sound
+
+//***NEW CODE*** here, we're checking to see if neither the lowercase or uppercase version of the letter appears in arrayFromWord 
+// if (arrayFromWord.indexOf(userGuess) < 0 && arrayFromWord.indexOf(userGuess.toUpperCase) && guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 1) {
+//     guessesLeft--;
+//     var audio = new Audio("./Audio/Ripped.mp3");
+//     audio.play();
+// }
+// 	add all alphabetic guesses to guessesSoFar if not already in there
+//  if (guessesSoFar.indexOf(userGuess) < 0 && alphabetLetters.indexOf(userGuess) >= 0) {
+//    guessesSoFar[guessesSoFar.length]=userGuess;
+// }
+
+    // if userGuess exists in the array then switch from false to true
+// for (var i = 0; i < arrayFromWord.length; i++) {
+// ***NEW CODE*** here, we have to check if the current element matches either the lowercase OR uppercase version of userGuess
+//  if (arrayFromWord[i] === userGuess || arrayFromWord[i] === userGuess.toUpperCase()) {
+// if the letter wasn't previously guessed then play "how you doing"
+//if (arrayFromWord[i+1] == false) {
+// var audio = new Audio("./Audio/Joey.mp3");
+// audio.play();
+//            }
+//            arrayFromWord[i+1] = true;
+//        }
+//    }    
+//}
 
 // function to see whether user has won the game
 function hasUserWon() {
