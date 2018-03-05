@@ -183,7 +183,7 @@ function hasUserWon() {
 		var audio = new Audio("./Audio/friends.mp3");
 		audio.play();
 		// update joey thinking to victory image
-		var joeyThinking="<img src=\"Assets/images/victory.gif\" class=\"img-responsive\" alt=\"Dancing in fountain\">";
+		var joeyThinking="<img src=\"Assets/Images/victory.gif\" class=\"img-responsive\" alt=\"Dancing in fountain\">";
 		document.querySelector("#joeyThinking").innerHTML = joeyThinking;
 		// finally reset the game for new round
 		resetGame();
@@ -202,7 +202,7 @@ function hasUserLost() {
 		var audio = new Audio("./Audio/Phoebe.mp3");
 		audio.play();
 		// update Joey's image to loss image
-		var joeyThinking="<img src=\"Assets/images/loss.gif\" class=\"img-responsive\" alt=\"Monica falling\">";
+		var joeyThinking="<img src=\"Assets/Images/loss.gif\" class=\"img-responsive\" alt=\"Monica falling\">";
 		document.querySelector("#joeyThinking").innerHTML = joeyThinking;
 		// finally reset the game for a new round
 		resetGame();
